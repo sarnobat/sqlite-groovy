@@ -1,6 +1,6 @@
 import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.MapHandler;
+import org.apache.commons.dbutils.handlers.*;
 /*
 
 sqlite3 students.db
@@ -14,6 +14,7 @@ create table students (
 select count(*) from students;
 
 insert into students(name,correct,raised) values ('Sridhar',0,0);
+insert into students(name,correct,raised) values ('Monali',0,0);
 */
 
 Class.forName("org.sqlite.JDBC");
@@ -32,5 +33,8 @@ dataSource.setUrl("jdbc:sqlite:students.db");
 QueryRunner run = new QueryRunner(dataSource);
 
 // Execute the query and get the results back from the handler
-Map.Entry[] result = run.query("SELECT name,raised FROM students WHERE name=?", new MapHandler(), "Sridhar");
-println(result[0].getKey());
+Object[] result = run.query("SELECT name,raised FROM students", new MapListHandler());
+//Map.Entry[] result = run.query("SELECT name,raised FROM students WHERE name=?", new MapHandler(), "Sridhar");
+println(result);
+println(result[0].getClass().getName());
+//println(result[0].getKey());
