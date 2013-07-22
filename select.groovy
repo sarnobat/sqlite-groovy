@@ -2,18 +2,20 @@ import org.apache.commons.dbcp.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.*;
 /*
-	sqlite3 students.db
-	
-	create table students (
-	   NAME           TEXT    NOT NULL,
-	   CORRECT            INT     NOT NULL,
-	   RAISED            INT     NOT NULL
-	);
-	
-	select count(*) from students;
-	
-	insert into students(name,correct,raised) values ('Sridhar',0,0);
-	insert into students(name,correct,raised) values ('Monali',0,0);
+sqlite3 students.db
+
+drop table students;
+
+create table students (
+NAME           TEXT    PRIMARY KEY NOT NULL,
+CORRECT            INT     NOT NULL,
+RAISED            INT     NOT NULL
+);
+
+select count(*) from students;
+
+insert into students(name,correct,raised) values ('Sridhar',0,0);
+insert into students(name,correct,raised) values ('Monali',0,0);
 */
 
 Class.forName("org.sqlite.JDBC");
