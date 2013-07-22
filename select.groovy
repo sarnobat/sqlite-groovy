@@ -25,6 +25,14 @@ dataSource.setUrl("jdbc:sqlite:students.db");
       
 
 QueryRunner run = new QueryRunner(dataSource);
+
+String newName = "name2";
+try {
+int inserts = run.update( "INSERT INTO students (name,raised,correct) VALUES ('" + newName + "',0,0)");
+} catch (Exception e) {
+	int updates = run.update( "UPDATE students SET raised=raised+1 WHERE name='" + newName + "'");
+}
+
 Map[] result = run.query("SELECT name,raised,correct FROM students", new MapListHandler());
 //Map.Entry[] result = run.query("SELECT name,raised FROM students WHERE name=?", new MapHandler(), "Sridhar");
 //println(result);
