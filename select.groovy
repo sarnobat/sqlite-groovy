@@ -1,5 +1,6 @@
 import org.apache.commons.dbcp.BasicDataSource;
-
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.MapHandler;
 /*
 
 sqlite3 students.db
@@ -31,4 +32,5 @@ dataSource.setUrl("jdbc:sqlite:students.db");
 QueryRunner run = new QueryRunner(dataSource);
 
 // Execute the query and get the results back from the handler
-Object[] result = run.query("SELECT name,raised FROM Person WHERE name=?", new MapHandler(), "Sridhar");
+Map.Entry[] result = run.query("SELECT name,raised FROM students WHERE name=?", new MapHandler(), "Sridhar");
+println(result[0].getKey());
