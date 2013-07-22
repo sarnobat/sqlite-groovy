@@ -38,3 +38,9 @@ Map[] result = run.query("SELECT name,raised FROM students", new MapListHandler(
 println(result);
 println(result[0].getClass().getName());
 //println(result[0].getKey());
+
+for (Map row : result) {
+	System.out.println(row.get("NAME"));
+	System.out.println(row.get("RAISED"));
+	System.out.println(row.get("CORRECT"));
+}
