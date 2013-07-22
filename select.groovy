@@ -33,7 +33,7 @@ dataSource.setUrl("jdbc:sqlite:students.db");
 QueryRunner run = new QueryRunner(dataSource);
 
 // Execute the query and get the results back from the handler
-Map[] result = run.query("SELECT name,raised FROM students", new MapListHandler());
+Map[] result = run.query("SELECT name,raised,correct FROM students", new MapListHandler());
 //Map.Entry[] result = run.query("SELECT name,raised FROM students WHERE name=?", new MapHandler(), "Sridhar");
 println(result);
 println(result[0].getClass().getName());
